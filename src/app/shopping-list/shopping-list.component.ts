@@ -14,10 +14,9 @@ export class ShoppingListComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
-    this.slService.ingredientsChanged.subscribe((ingredients:Ingredient[])=>{
+    this.slService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
       this.ingredients = ingredients;
     });
   }
   // tslint:disable-next-line: typedef
-
 }
