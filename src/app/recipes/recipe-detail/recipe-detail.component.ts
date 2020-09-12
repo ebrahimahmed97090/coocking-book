@@ -17,20 +17,17 @@ export class RecipeDetailComponent implements OnInit {
     private router: Router
   ) {}
 
-  // tslint:disable-next-line: typedef
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.params.subscribe((params: Params) => {
       // tslint:disable-next-line: no-string-literal
       this.id = +params['id'];
       this.recipe = this.recipeService.getRecipe(this.id);
     });
   }
-  // tslint:disable-next-line: typedef
-  onAddTpShoppingList() {
+  onAddTpShoppingList(): void {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
   }
-  onEditRecipe() {
+  onEditRecipe(): void {
     this.router.navigate(['edit'], { relativeTo: this.route });
-    // this.router.navigate(['../', this.id, 'edit'],{relativeTo: this.route})
   }
 }

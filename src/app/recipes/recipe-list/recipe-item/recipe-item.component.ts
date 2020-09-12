@@ -13,6 +13,5 @@ export class RecipeItemComponent implements OnInit {
 
 
   constructor(private recipeService: RecipeService) {}
-  // tslint:disable-next-line: typedef
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

@@ -18,11 +18,10 @@ export class RecipeListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  // tslint:disable-next-line: typedef
-  ngOnInit() {
+  ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes();
   }
-  onNewRecipe() {
+  onNewRecipe(): void {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
 }

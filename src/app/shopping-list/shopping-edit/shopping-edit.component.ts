@@ -19,11 +19,10 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild('amountInput', { static: false }) amountInputRef: ElementRef;
   constructor(private slService: ShoppingListService) {}
 
-  // tslint:disable-next-line: typedef
-  ngOnInit() {}
 
-  // tslint:disable-next-line: typedef
-  onAddItem() {
+  ngOnInit(): void {}
+
+  onAddItem(): void {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
     const newIngredient = new Ingredient(ingName, ingAmount);

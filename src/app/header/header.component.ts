@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  // tslint:disable-next-line: typedef
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }
