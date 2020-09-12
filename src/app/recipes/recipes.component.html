@@ -1,16 +1,16 @@
 <div class="row">
-<div class="col-xl-5">
-<app-recipe-list (recipeWasSelected)="SelectedRecipe = $event"></app-recipe-list>
-</div>
-<div class="col-xl-7">
-<app-recipe-detail *ngIf="SelectedRecipe; else elseTemplate" [recipe]="SelectedRecipe">
+  <div class="col-xl-5">
+    <app-recipe-list></app-recipe-list>
+  </div>
+  <div class="col-xl-7">
+    <app-recipe-detail *ngIf="SelectedRecipe; else elseTemplate" [recipe]="SelectedRecipe">
 
 
 
-</app-recipe-detail>
-<ng-template #elseTemplate>
+    </app-recipe-detail>
+    <ng-template #elseTemplate>
 
-</ng-template>
-</div>
+    </ng-template>
+  </div>
 
 </div>
