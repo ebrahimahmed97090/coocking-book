@@ -21,13 +21,13 @@
         <div class="col-xl-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
-            <input formControlName="imagePath" type="text" class="form-control" id="imagePath">
+            <input formControlName="imagePath" #imagePath type="text" class="form-control" id="imagePath">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xl-12">
-          <img src="" class="img-fluid" alt="">
+          <img [src]="imagePath.value" class="img-fluid" alt="">
         </div>
       </div>
       <div class="row">
