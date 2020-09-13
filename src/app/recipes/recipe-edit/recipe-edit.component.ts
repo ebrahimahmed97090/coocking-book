@@ -26,7 +26,7 @@ export class RecipeEditComponent implements OnInit {
       this.initForm();
     });
   }
-  onSubmit() {
+  onSubmit(): void {
     console.log(this.recipeForm);
   }
   onAddIngredient(): void {
@@ -44,6 +44,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescreption = '';
+    // tslint:disable-next-line: prefer-const
     let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
@@ -51,6 +52,7 @@ export class RecipeEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescreption = recipe.description;
+      // tslint:disable-next-line: no-string-literal
       if (recipe['ingredients']) {
         for (const ingredient of recipe.ingredients) {
           recipeIngredients.push(
