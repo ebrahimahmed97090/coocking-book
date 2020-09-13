@@ -5,7 +5,7 @@
         <div class="col-xl-12">
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
           </div>
         </div>
       </div>
@@ -41,7 +41,8 @@
       </div>
       <div class="row">
         <div class="col-xl-12" formArrayName="ingredients">
-          <div class="row my-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index" [formGroupName]="i">
+          <div class="row my-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
+            [formGroupName]="i">
             <div class="col-xl-8"> <input type="text" class="form-control" formControlName="name">
             </div>
             <div class="col-xl-2"> <input type="text" class="form-control" formControlName="amount">
@@ -50,7 +51,10 @@
             </div>
           </div>
           <hr>
-          <div class="row"><div class="col-xl-12"><button class="btn btn-success" type="button" (click)="onAddIngredient()">Add Ingredient</button></div></div>
+          <div class="row">
+            <div class="col-xl-12"><button class="btn btn-success" type="button" (click)="onAddIngredient()">Add
+                Ingredient</button></div>
+          </div>
         </div>
       </div>
     </form>
