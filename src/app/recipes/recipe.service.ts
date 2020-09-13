@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
@@ -7,7 +8,9 @@ import { Recipe } from './recipe.model';
   providedIn: 'root',
 })
 export class RecipeService {
+  constructor(private slService: ShoppingListService) {}
 
+  recipesChanged = new Subject<Recipe[]>();
   private recipes: Recipe[] = [
     new Recipe(
       'Meat Recipe',
@@ -22,16 +25,21 @@ export class RecipeService {
       [new Ingredient('flour', 1), new Ingredient('buns', 20)]
     ),
   ];
-  // tslint:disable-next-line: typedef
-  getRecipes() {
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
-  getRecipe(index: number) {
+  getRecipe(index: number): Recipe {
     return this.recipes[index];
   }
-  // tslint:disable-next-line: typedef
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  addIngredientsToShoppingList(ingredients: Ingredient[]): void {
     this.slService.addIngredients(ingredients);
   }
-  constructor(private slService: ShoppingListService) {}
+  addRecipe(recipe: Recipe): void {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+  updateRecipe(index: number, newRecipe: Recipe): void {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
