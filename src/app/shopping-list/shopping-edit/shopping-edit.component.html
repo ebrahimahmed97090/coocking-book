@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col-xl-12">
-    <form action="">
+    <form (ngSubmit)="onAddItem(f)" #f="ngForm">
       <div class="row">
         <div class="col-xl-5 form-group">
           <label for="name">
             Name
           </label>
-          <input #nameInput type="text" name="name" id="name" class="form-control">
+          <input type="text" name="name" id="name" class="form-control" ngModel>
         </div>
 
         <div class="col-xl-2 form-group">
           <label for="amount">
             Amount
           </label>
-          <input #amountInput type="number" name="name" id="amount" class="form-control">
+          <input type="number" name="amount" ngModel id="amount" class="form-control">
         </div>
       </div>
       <div class="row">
         <div class="col-xl-12">
           <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-success" (click)="onAddItem()">Add</button>
+            <button type="submit" class="btn btn-success">Add</button>
             <button type="button" class="btn btn-danger">Delete</button>
             <button type="button" class="btn btn-primary">Clear</button>
           </div>
