@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row no-gutters">
   <div class="col-xl-12">
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12">
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
@@ -9,7 +9,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12">
           <div class="form-group">
             <label for="name">Name</label>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
@@ -25,12 +25,12 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12">
-          <img [src]="imagePath.value" class="img-fluid" alt="">
+          <img [src]="imagePath.value" class="img-fluid" alt="" width="100%">
         </div>
       </div>
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12">
           <div class="form-group">
             <label for="description">Description</label>
@@ -39,9 +39,9 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row no-gutters">
         <div class="col-xl-12" formArrayName="ingredients">
-          <div class="row my-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
+          <div class="row no-gutters my-2" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let i = index"
             [formGroupName]="i">
             <div class="col-xl-8"> <input type="text" class="form-control" formControlName="name">
             </div>
@@ -52,7 +52,7 @@
             </div>
           </div>
           <hr>
-          <div class="row">
+          <div class="row no-gutters">
             <div class="col-xl-12"><button class="btn btn-success" type="button" (click)="onAddIngredient()">Add
                 Ingredient</button></div>
           </div>
