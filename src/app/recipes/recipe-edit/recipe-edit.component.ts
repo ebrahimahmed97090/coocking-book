@@ -46,11 +46,11 @@ export class RecipeEditComponent implements OnInit {
       })
     );
   }
-  onDeleteIngredient(index: number): void{
+  onDeleteIngredient(index: number): void {
     (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
   }
-  onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+  onCancel(): void {
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
   private initForm(): void {
     let recipeName = '';
