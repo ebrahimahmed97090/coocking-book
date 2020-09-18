@@ -35,8 +35,9 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
-    this.dataStorageService.storeRecipes();
+
     this.onCancel();
+    this.dataStorageService.storeRecipes();
   }
   onAddIngredient(): void {
     (this.recipeForm.get('ingredients') as FormArray).push(
@@ -77,7 +78,7 @@ export class RecipeEditComponent implements OnInit {
               name: new FormControl(ingredient.name),
               amount: new FormControl(ingredient.amount, [
                 Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/),
+                Validators.pattern(/^[0-9]\d*(\.\d+)?$/),
               ]),
             })
           );
