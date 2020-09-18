@@ -1,3 +1,4 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { RecipeService } from './../recipe.service';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +14,7 @@ export class RecipeEditComponent implements OnInit {
   editMode = false;
   recipeForm: FormGroup;
   constructor(
+    private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
     private recipeService: RecipeService,
     private router: Router
@@ -33,6 +35,7 @@ export class RecipeEditComponent implements OnInit {
     } else {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
+    this.dataStorageService.storeRecipes();
     this.onCancel();
   }
   onAddIngredient(): void {
@@ -45,9 +48,11 @@ export class RecipeEditComponent implements OnInit {
         ]),
       })
     );
+    this.dataStorageService.storeRecipes();
   }
   onDeleteIngredient(index: number): void {
     (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
+    this.dataStorageService.storeRecipes();
   }
   onCancel(): void {
     this.router.navigate(['../'], { relativeTo: this.route });

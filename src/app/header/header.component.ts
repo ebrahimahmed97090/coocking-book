@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private dataStorageService: DataStorageService) {}
+  constructor(private dataStorageService: DataStorageService) {
+    this.dataStorageService.fetchRecipes().subscribe();
+  }
 
   ngOnInit(): void {}
   onSaveData(): void {
     this.dataStorageService.storeRecipes();
-  }
-  onFetchData(): void {
-    this.dataStorageService.fetchRecipes().subscribe();
   }
 }

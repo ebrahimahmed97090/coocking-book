@@ -16,6 +16,7 @@ export class DataStorageService {
       .put('https://coocking-book-d4d21.firebaseio.com/recipes.json', recipes)
       .subscribe((response) => {});
   }
+  // tslint:disable-next-line: typedef
   fetchRecipes() {
     return this.http
       .get<Recipe[]>('https://coocking-book-d4d21.firebaseio.com/recipes.json')
