@@ -17,7 +17,7 @@ export class ShoppingListService {
   getIngredients() {
     return this.ingredients.slice();
   }
-  getIngredient(index: number) {
+  getIngredient(index: number): Ingredient {
     return this.ingredients[index];
   }
   // tslint:disable-next-line: typedef
@@ -30,11 +30,11 @@ export class ShoppingListService {
     this.ingredients.push(...ingredients);
     this.ingredientsChanged.next(this.ingredients.slice());
   }
-  updateIngredient(index: number, newIngredient: Ingredient): void{
+  updateIngredient(index: number, newIngredient: Ingredient): void {
     this.ingredients[index] = newIngredient;
     this.ingredientsChanged.next(this.ingredients.slice());
   }
-  deleteIngredient(index: number): void{
+  deleteIngredient(index: number): void {
     this.ingredients.splice(index, 1);
     this.ingredientsChanged.next(this.ingredients.slice());
   }

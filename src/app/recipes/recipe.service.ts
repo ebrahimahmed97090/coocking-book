@@ -1,3 +1,4 @@
+import { DataStorageService } from './../shared/data-storage.service';
 import { Subject } from 'rxjs';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
@@ -8,7 +9,9 @@ import { Recipe } from './recipe.model';
   providedIn: 'root',
 })
 export class RecipeService {
-  constructor(private slService: ShoppingListService) {}
+  constructor(
+    private slService: ShoppingListService,
+  ) {}
 
   recipesChanged = new Subject<Recipe[]>();
 
